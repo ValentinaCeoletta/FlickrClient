@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flickr Client</string>
+    <string name="hint_message">Cosa stai cercando?</string>
+    <string name="send_button">Cerca</string>
+    <string name="recent_photos">Foto recenti</string>
+    <string name="popular_photos">Foto più popolari </string>
+    <string name="comments">Nessun commento</string>
+    <string name="title_share">Condividi</string>
+    <string name="title_lastUserPhoto">Visualizza le ultime foto dell\'utente</string>
+    <string name="title_info">Informazioni</string>
+    <string name="info_date">Data: Giugno 2017</string>
+    <string name="info_authors">Autori: Ceoletta Valentina, Zenari Nicolò</string>
+    <string name="info_version">Versione: 1.1</string>
+</resources>
