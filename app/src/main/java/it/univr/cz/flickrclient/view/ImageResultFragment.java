@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -122,6 +123,12 @@ public class ImageResultFragment extends ListFragment implements AbstractFragmen
     public boolean onContextItemSelected(MenuItem item) {
         if (item.getTitle()==getResources().getString(R.string.title_share)){
 
+            if ( !mvc.controller.isNetworkAvailable(getContext()) ){
+                Toast.makeText(getContext(), new String(getContext().getResources().getString(R.string.no_network)), Toast.LENGTH_LONG).show();
+                Log.e(TAG, "No network available");
+                return false;
+            }
+
             int position = ((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
             Uri uri = saveImage(position);
 
@@ -193,6 +200,7 @@ public class ImageResultFragment extends ListFragment implements AbstractFragmen
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+
             View row = convertView;
 
             // optimization for item

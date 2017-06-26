@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import it.univr.cz.flickrclient.FlickrApplication;
 import it.univr.cz.flickrclient.MVC;
@@ -85,7 +86,11 @@ public class TabletView extends LinearLayout implements View {
      */
     @Override
     public void showImageResult() {
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.tablet_right_view, new ImageResultFragment()).commit();
+        if (mvc.model.isEmpty()) {
+            Toast.makeText(getContext(), new String(getResources().getString(R.string.no_photos)), Toast.LENGTH_SHORT).show();
+        } else {
+            getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.tablet_right_view, new ImageResultFragment()).commit();
+        }
     }
 
     /**

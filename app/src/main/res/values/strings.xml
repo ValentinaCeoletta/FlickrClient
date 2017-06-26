@@ -12,4 +12,6 @@
     <string name="info_date">Date: Giugno 2017</string>
     <string name="info_authors">Authors: Ceoletta Valentina, Zenari Nicolò</string>
     <string name="info_version">Verion: 1.1</string>
+    <string name="no_photos">Photo not found</string>
+    <string name="no_network">Please check your internet connection</string>
 </resources>

@@ -81,9 +81,11 @@ public class SearchFragment extends Fragment implements AbstractFragment {
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
-            mvc.controller.searchString(getActivity().getApplicationContext(), search_string.getText().toString());
+
+            if (! search_string.getText().toString().isEmpty())
+                mvc.controller.searchString(getActivity().getApplicationContext(), search_string.getText().toString());
         });
 
         recent_button = (Button) view.findViewById(R.id.recent_button);
@@ -92,7 +94,7 @@ public class SearchFragment extends Fragment implements AbstractFragment {
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
             mvc.controller.searchRecent(getActivity().getApplicationContext());
         });
@@ -103,6 +105,7 @@ public class SearchFragment extends Fragment implements AbstractFragment {
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
             } catch (Exception e) {
+                e.printStackTrace();
 
             }
             mvc.controller.searchPopular(getActivity().getApplicationContext());

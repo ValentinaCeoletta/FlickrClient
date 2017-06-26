@@ -110,8 +110,6 @@ public class ImageFragment extends Fragment implements AbstractFragment {
         image_title = (TextView) view.findViewById(R.id.image_title);
         list_view = (ListView) view.findViewById(R.id.list_view);
 
-
-        // https://stackoverflow.com/questions/23260602/using-listview-in-a-scroll-view
         list_view.setOnTouchListener((view1, event) -> {
             int action = event.getAction();
             switch (action) {
@@ -134,7 +132,6 @@ public class ImageFragment extends Fragment implements AbstractFragment {
         image.setImageBitmap(pic.getImage());
         image_title.setText(pic.getTitle());
 
-        //Log.d(TAG, "comments len: " + pic.getComments().length + " id: " + pic.getId());
         adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_list_item_1, pic.getComments());
         list_view.setAdapter(adapter);
 
@@ -187,6 +184,7 @@ public class ImageFragment extends Fragment implements AbstractFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_share) {
+
             Uri uri = saveImage();
 
             Intent intent = new Intent(Intent.ACTION_SEND);

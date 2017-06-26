@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import it.univr.cz.flickrclient.FlickrApplication;
 import it.univr.cz.flickrclient.MVC;
@@ -84,7 +85,11 @@ public class PhoneView extends FrameLayout implements View {
      */
     @Override
     public void showImageResult() {
-        getFragmentManager().beginTransaction().replace(R.id.phone_view, new ImageResultFragment()).addToBackStack(null).commit();
+        if (mvc.model.isEmpty()) {
+            Toast.makeText(getContext(), new String(getResources().getString(R.string.no_photos)), Toast.LENGTH_SHORT).show();
+        } else {
+            getFragmentManager().beginTransaction().replace(R.id.phone_view, new ImageResultFragment()).addToBackStack(null).commit();
+        }
     }
 
     /**

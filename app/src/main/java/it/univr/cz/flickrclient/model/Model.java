@@ -142,4 +142,12 @@ public class Model {
         }
         return -1;
     }
+
+    /**
+     * Returns True if the LinkedList is empty
+     * @return boolean
+     */
+    public boolean isEmpty(){
+        return pictures.isEmpty();
+    }
 }

@@ -2,10 +2,14 @@ package it.univr.cz.flickrclient.controller;
 
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.UiThread;
 import android.util.Log;
+import android.widget.Toast;
 
 import it.univr.cz.flickrclient.MVC;
+import it.univr.cz.flickrclient.R;
 import it.univr.cz.flickrclient.controller.service.FlickrService;
 
 /**
@@ -43,6 +47,11 @@ public class Controller {
      */
     @UiThread
     public void searchString(Context context, String searchText) {
+        if (!isNetworkAvailable(context)){
+            Toast.makeText(context, new String(context.getResources().getString(R.string.no_network)), Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No network available");
+            return;
+        }
         Log.d(TAG, "searchString method");
         FlickrService.downloadInfo(context, searchText);
     }
@@ -53,6 +62,11 @@ public class Controller {
      */
     @UiThread
     public void searchRecent(Context context) {
+        if (!isNetworkAvailable(context)){
+            Toast.makeText(context, new String(context.getResources().getString(R.string.no_network)), Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No network available");
+            return;
+        }
         Log.d(TAG, "searchRecent method");
         FlickrService.downloadRecentPhoto(context);
     }
@@ -63,6 +77,11 @@ public class Controller {
      */
     @UiThread
     public void searchPopular(Context context) {
+        if (!isNetworkAvailable(context)){
+            Toast.makeText(context, new String(context.getResources().getString(R.string.no_network)), Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No network available");
+            return;
+        }
         Log.d(TAG, "searchPopular method");
         FlickrService.downloadPopularPhoto(context);
     }
@@ -76,6 +95,11 @@ public class Controller {
      */
     @UiThread
     public void downloadImage(Context context, String url, String photoId, int position) {
+        if (!isNetworkAvailable(context)){
+            Toast.makeText(context, new String(context.getResources().getString(R.string.no_network)), Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No network available");
+            return;
+        }
         Log.d(TAG, "downloadImage method");
         FlickrService.downloadImage(context, url, position);
     }
@@ -87,7 +111,24 @@ public class Controller {
      */
     @UiThread
     public void downloadUserPhoto(Context context, String ownerId){
+        if (!isNetworkAvailable(context)){
+            Toast.makeText(context, new String(context.getResources().getString(R.string.no_network)), Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No network available");
+            return;
+        }
         Log.d(TAG, "downloadUserPhoto method");
         FlickrService.downloadUserPhoto(context, ownerId);
+    }
+
+    /**
+     * Checks if network is available
+     * @param context
+     * @return Boolean
+     */
+    public boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager)  context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
