@@ -8,7 +8,6 @@ import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
 import android.support.annotation.WorkerThread;
-import android.util.Log;
 
 import java.util.concurrent.ExecutorService;
 

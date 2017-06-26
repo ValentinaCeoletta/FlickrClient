@@ -18,7 +18,6 @@ import java.net.URLConnection;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
 import it.univr.cz.flickrclient.FlickrApplication;
 import it.univr.cz.flickrclient.MVC;
 import it.univr.cz.flickrclient.model.Action;

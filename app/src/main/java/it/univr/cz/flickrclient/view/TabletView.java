@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
 import it.univr.cz.flickrclient.FlickrApplication;
 import it.univr.cz.flickrclient.MVC;
 import it.univr.cz.flickrclient.R;

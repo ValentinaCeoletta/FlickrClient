@@ -1,8 +1,6 @@
 package it.univr.cz.flickrclient.model;
 
 import android.graphics.Bitmap;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 import java.util.LinkedList;
 
