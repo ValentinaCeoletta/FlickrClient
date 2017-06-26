@@ -1,5 +1,5 @@
 # FlickrClient
-Progetto di "Verifica automatica dei sistemi", Laurea magistrale "Ingegneria e scienze informatiche", Università degli studi di Verona.
+Progetto di "Verifica automatica di sistemi", Laurea magistrale "Ingegneria e scienze informatiche", Università degli studi di Verona.
 
 ## Specifiche
 Il progetto consiste nella realizzazione di un client Flickr che deve permettere di effettuare le seguenti operazioni:
