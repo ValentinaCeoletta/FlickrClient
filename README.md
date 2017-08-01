@@ -32,3 +32,6 @@ Si utilizzi il paradigma MVC.
 ## Autori
 - Valentina Ceoletta valentina.ceoletta@studenti.univr.it
 - Nicolò Zenari nicolo.zenari@studenti.univr.it
+
+## Valutazione
+30 e Lode
